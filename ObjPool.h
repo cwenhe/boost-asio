@@ -8,12 +8,13 @@
 
 using namespace boost::lockfree;
 
-template< class Obj >
+template< typename Obj >
 class  ObjPool
 {
 public:
     typedef typename std::shared_ptr<Obj> value_shared_ptr;
-    typedef typename Obj value_ptr;
+    //typedef typename Obj value_ptr;
+	using value_ptr = Obj;
     static ObjPool& instance();
 
     template<typename... Args> 
